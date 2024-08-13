@@ -42,3 +42,4 @@ next-env.d.ts
 /.idea/inspectionProfiles/reactproject1.xml
 /.idea/vcs.xml
 /.idea/*
+*.xml
