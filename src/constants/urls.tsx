@@ -5,6 +5,13 @@ export const urls = {
         base: BaseUrl + '/3/discover/movie',
         byId: (id: string): string => BaseUrl + "/3/movie/" + id,
     },
+    genres: {
+        base: BaseUrl + '/3/genre/movie/list'
+    },
+    images: {
+        base: 'https://image.tmdb.org/t/p/w500/'
+    }
+}
     // posts: {
     //     base: '/posts',
     //     byId: (id: number): string => urls.posts.base + "/" + id,
@@ -15,4 +22,3 @@ export const urls = {
     //     byId: (id:number):string => urls.posts.base + '/' + id + '/comments' //'/posts/'+postId+'/comments'
     // }
 
-}

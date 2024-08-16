@@ -1,10 +1,11 @@
 import React from 'react';
 import GenresList from "@/components/GenresList/GenresList";
+import MoviesList from "@/components/MoviesList/MoviesList";
 
 const GenresPage = () => {
     return (
         <div>
-            <GenresList/>
+            <MoviesList/>
         </div>
     );
 };

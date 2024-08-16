@@ -1,0 +1,12 @@
+.boxAllMovies {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    width: 95%;
+    overflow: auto;
+    box-sizing: border-box;
+
+}

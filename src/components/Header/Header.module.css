@@ -1,0 +1,17 @@
+.menuBox{
+    height: 100%;
+    width: 100%;
+    background-color: #303638;
+    margin: 0;
+    padding: 10px 5px;
+}
+.menuBox>div{
+    margin: 0;
+/*//15*/
+}
+.menuBox>div>a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+
+}
