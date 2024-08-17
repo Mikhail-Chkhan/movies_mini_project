@@ -2,41 +2,33 @@
 import React, {FC, useEffect, useState} from 'react';
 import styles from './SearchComponent.module.css';
 import ISearchModel from "@/models/ISearchModel";
-import {LanguagesService} from "@/services/language.api.service";
-import ILanguage from "@/models/ILanguage";
-import ResetFilters from "@/components/ResetFilters/ResetFilters";
 import {useDispatch} from "react-redux";
-import {updateSearchParams} from "@/redux/slices/searchParamsSlice";
+import {updateSearchParams, resetSearchParams} from "@/redux/slices/searchParamsSlice";
 
 const SearchComponent: FC = () => {
+
     const dispatch = useDispatch();
-    const [languages, setLanguages] = useState<ILanguage[]>([]);
     const [years, setYears] = useState<string[]>([]);
     const [searchModel, setSearchModel] = useState<ISearchModel>({
-        query: '',
-        language: '',
-        year: '',
+        query: "",
+        year: "",
         page: '1'
     });
 
-    useEffect(() => {
-        // Fetch languages
-        const fetchLanguages = async () => {
-            const response = await LanguagesService.getAllLanguages();
-            setLanguages(response);
-        };
 
+    useEffect(() => {
         const generateYears = () => {
             const yearArray = [];
             for (let i = 1900; i <= 2024; i++) {
-                yearArray.unshift(i.toString());  // Добавляет год в начало массива
+                yearArray.unshift(i.toString());
             }
             setYears(yearArray);
         };
-
-        fetchLanguages();
         generateYears();
+
+
     }, []);
+
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const {name, value} = e.target;
@@ -45,32 +37,34 @@ const SearchComponent: FC = () => {
                 ...prevState,
                 [name]: value
             };
-            console.log(updatedModel); // Вывод в консоль обновленного объекта searchModel
-            dispatch(updateSearchParams(updatedModel)); // Правильный вызов dispatch
+            console.log(updatedModel);
+            dispatch(updateSearchParams(updatedModel));
             return updatedModel;
         });
     };
 
+
+    const handleResetFilters = () => {
+        const initialModel = {
+            query: "",
+            year: "",
+            page: '1'
+        };
+        setSearchModel(initialModel);
+        dispatch(resetSearchParams())
+
+    };
+
     return (
-        <div className={styles.divBorder}>
+        <form className={styles.divBorder}>
             <input
                 className={styles.inputSearch}
                 placeholder="Enter the name of the movie, for example: John Wick"
                 name="query"
                 value={searchModel.query}
                 onChange={handleInputChange}
+                required
             />
-            <select
-                name="language"
-                value={searchModel.language}
-                onChange={handleInputChange}
-                className={styles.dropdown}
-            >
-                <option value="">Select Language</option>
-                {languages.map((language, index) => (
-                    <option key={index} value={language.iso_639_1}>{language.english_name}</option>
-                ))}
-            </select>
             <select
                 name="year"
                 value={searchModel.year}
@@ -82,8 +76,11 @@ const SearchComponent: FC = () => {
                     <option key={index} value={year}>{year}</option>
                 ))}
             </select>
-            <ResetFilters/>
-        </div>
+            <button
+                className={styles.buttonReset}
+                onClick={handleResetFilters}>RESET</button>
+
+        </form>
     );
 };
 

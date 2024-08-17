@@ -19,7 +19,7 @@ const MoviesListCard: FC<MovieProps> = ({ movie }) => {
         <Link href={`/movies/${movie.id}`} className={styles.link}>
             <img
                 className={styles.borderPoster}
-                src={`${urls.images.base}${movie.backdrop_path}`}
+                src={`${urls.images.base}${movie.poster_path}`}
                 alt={movie.title}
                 onError={handleImageError}
             />

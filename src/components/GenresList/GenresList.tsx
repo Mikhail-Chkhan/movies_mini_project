@@ -44,7 +44,7 @@ const GenresList = () => {
                         genre={genre}
                     />
                 ))}
-                <ResetFilters />
+                <ResetFilters/>
             </div>
         </div>
     );

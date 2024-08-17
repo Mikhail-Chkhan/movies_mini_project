@@ -1,12 +1,12 @@
 "use client";
-import { moviesService } from "@/services/movie.api.service";
+import {moviesService} from "@/services/movie.api.service";
 import MoviesListCard from "@/components/MoviesListCard/MoviesListCard";
 import styles from './MoviesList.module.css';
-import React, { FC, useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-import { resetFilters } from "@/redux/slices/filterSlice";
-import { MoviesResponse } from "@/models/MoviesResponse";
+import React, {FC, useEffect, useRef, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "@/redux/store";
+import {resetFilters} from "@/redux/slices/filterSlice";
+import {MoviesResponse} from "@/models/MoviesResponse";
 import PaginationComponent from "@/components/PaginationComponents/PaginationComponent";
 import {resetSearchParams} from "@/redux/slices/searchParamsSlice";
 
@@ -14,14 +14,20 @@ interface MoviesListProps {
     type: string;
 }
 
-const MoviesList: FC<MoviesListProps> = ({ type }) => {
+const MoviesList: FC<MoviesListProps> = ({type}) => {
     const dispatch = useDispatch();
     const filters = useSelector((state: RootState) => state.filters.filters);
     const searchParams = useSelector((state: RootState) => state.searchParams.searchParams);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-    const [movies, setMovies] = useState<MoviesResponse>({ page: 0, results: [], total_pages: 0, total_results: 0 });
+    const [movies, setMovies] = useState<MoviesResponse>({page: 0, results: [], total_pages: 0, total_results: 0});
     const isInitialRender = useRef(true);
+
+
+
+
+    if (!searchParams.query) type = 'genre'
+
 
     useEffect(() => {
         if (isInitialRender.current) {
@@ -46,8 +52,8 @@ const MoviesList: FC<MoviesListProps> = ({ type }) => {
                 }
 
                 setMovies(response);
-                console.log(filters);
-                console.log(searchParams)
+                // console.log("Фильтра",filters);
+                // console.log("Кверя",searchParams)
 
             } catch (err) {
                 setError("Unable to load movies, try refreshing the page");

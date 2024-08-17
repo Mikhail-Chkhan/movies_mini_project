@@ -15,11 +15,6 @@
     margin: 0 5px;
 }
 
-.divSearch {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-}
 
 .dropdown {
     height: 30px;
@@ -30,4 +25,20 @@
 .divBorder {
     display: flex;
     flex-direction: row;
+}
+.buttonReset {
+    background-color: #303638;
+    height: 25px;
+    width: 80px;
+    margin: 2px;
+    border-radius: 3px;
+    border: 2px solid #303638;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    padding: 1px 5px;
+    cursor: pointer;
+
 }
