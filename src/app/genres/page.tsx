@@ -5,7 +5,7 @@ import MoviesList from "@/components/MoviesList/MoviesList";
 const GenresPage = () => {
     return (
         <div>
-            <MoviesList/>
+            <MoviesList type={'genre'}/>
         </div>
     );
 };

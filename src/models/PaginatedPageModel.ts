@@ -1,4 +1,4 @@
 export interface PaginatedPageModel {
-    page: string,
-    total_pages:string
+    page: number,
+    total_pages:number
 }

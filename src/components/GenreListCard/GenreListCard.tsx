@@ -32,4 +32,5 @@ const GenresListCard: FC<GenreProps> = ({ genre }) => {
     );
 };
 
+
 export default GenresListCard;

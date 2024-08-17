@@ -4,9 +4,22 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    height: 90vh;
-    width: 95%;
+    /*height: 80vh;*/
+    /*width: 95%;*/
     overflow: auto;
     box-sizing: border-box;
 
+
+}
+.paginatorBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pendingStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: #303638;
 }

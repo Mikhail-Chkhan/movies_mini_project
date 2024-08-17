@@ -1,9 +1,22 @@
 .boxGenre {
+
 display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    width: 70vw;
+
+}
+.pendingStyle {
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 90%;
-
+    font-size: 25px;
+    color: #303638;
+}
+.divBoxGenre {
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }

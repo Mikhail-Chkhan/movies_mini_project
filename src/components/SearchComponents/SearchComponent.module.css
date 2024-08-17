@@ -1,0 +1,33 @@
+.inputSearch {
+    width: 45vw;
+    height: 25px;
+    font-size: 22px;
+}
+
+.inputSearch, .dropdown {
+
+    border: 2px solid #303638;
+    color: #303638;
+    background-color: white;
+    font-size: 22px;
+    place-content: flex-start;
+    border-radius: 3px;
+    margin: 0 5px;
+}
+
+.divSearch {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.dropdown {
+    height: 30px;
+    width: 170px;
+    font-size: 18px;
+
+}
+.divBorder {
+    display: flex;
+    flex-direction: row;
+}

@@ -2,12 +2,14 @@
 import React from 'react';
 import styles from './ResetFilters.module.css'
 import {useDispatch} from "react-redux";
-import {resetFilters, updateFilter} from "@/redux/slices/filterSlice";
+import {resetFilters} from "@/redux/slices/filterSlice";
+import {resetSearchParams} from "@/redux/slices/searchParamsSlice";
 
 const ResetFilters = () => {
     const dispatch = useDispatch();
     let resetFilter = () => {
         dispatch(resetFilters())
+        dispatch(resetSearchParams())
 
     }
     return (

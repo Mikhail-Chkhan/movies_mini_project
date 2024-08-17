@@ -1,6 +1,33 @@
 .borderPoster {
     width: 300px;
+    height: 180px;
     margin: 5px;
     border-radius: 3px;
+    object-fit: cover;
+    object-position: center;
+}
 
+.titleBox {
+    color: #303638;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    align-content: center;
+    width: 270px;
+    height: 40px;
+    overflow: hidden;        /* Обрезает текст, выходящий за пределы контейнера */
+    text-overflow: ellipsis;
+
+}
+
+.link {
+    text-decoration: none;
+    background-color: #c5c5c5;
+    border-radius: 3px;
+    margin: 2px;
+}
+
+.titleBox>p {
+    margin: 0;
+    font-weight: bold;
 }
