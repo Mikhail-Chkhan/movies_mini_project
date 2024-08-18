@@ -9,7 +9,7 @@ const MoviesPage = () => {
             <div className={styles.divSearch}>
                 <SearchComponent/>
             </div>
-            <div >
+            <div className={styles.divContent}>
                 <MoviesList type={'search'}/>
             </div>
         </div>

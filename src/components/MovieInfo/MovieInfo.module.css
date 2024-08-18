@@ -1,0 +1,65 @@
+.mainBoxMovieDetail {
+    /*width: 700px;*/
+    /*height: 600px;*/
+    border-radius: 5px;
+    background-color: #9f9898;
+    padding: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.boxPoster {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.boxImg {
+    width: 400px;
+    /*height: 300px;*/
+    display: flex;
+    flex-direction: column;
+}
+.boxCharacteristic {
+    width: 400px;
+    /*height: 300px;*/
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-left: 20px;
+}
+
+.descriptions {
+    /*width: 680px;*/
+    /*height: 280px;*/
+    color: white;
+}
+
+.boxImg {
+    width: 300px;
+    border-radius: 3px;
+}
+
+.header {
+    color: #303638;
+    font-size: 22px;
+    margin: 1px;
+}
+
+
+.linkBox {
+    text-decoration: none;
+    cursor: pointer;
+    margin: 2px 5px;
+
+}
+
+.genresBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+

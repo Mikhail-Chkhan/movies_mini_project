@@ -1,0 +1,13 @@
+.iconBox {
+    height: 32px;
+    margin: 10px 5px;
+}
+.userBox {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    color: white;
+    cursor: pointer;
+    margin-right: 40px
+
+}

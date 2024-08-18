@@ -1,8 +1,6 @@
 import React from 'react';
 import {Metadata} from "next";
-import GenresList from "@/components/GenresList/GenresList";
-import SearchComponent from "@/components/SearchComponents/SearchComponent";
-import styles from '@/app/page.module.css'
+import styles from './page.module.css'
 
 export const metadata: Metadata = {
     title: 'Movies'

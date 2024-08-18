@@ -23,19 +23,13 @@ const MoviesList: FC<MoviesListProps> = ({type}) => {
     const [movies, setMovies] = useState<MoviesResponse>({page: 0, results: [], total_pages: 0, total_results: 0});
     const isInitialRender = useRef(true);
 
-
-
-
-    if (!searchParams.query) type = 'genre'
-
-
     useEffect(() => {
+        if (!searchParams.query) type = 'genre'
         if (isInitialRender.current) {
             isInitialRender.current = false;
             dispatch(resetFilters());
             dispatch(resetSearchParams())
         }
-
         const getMovies = async () => {
             try {
                 let response;

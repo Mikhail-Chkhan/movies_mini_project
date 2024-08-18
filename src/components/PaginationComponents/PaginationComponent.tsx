@@ -16,6 +16,9 @@ const PaginationComponent: FC<PaginatedPageModel> = ({ page, total_pages }) => {
     }, [page, total_pages]);
 
     const changePage = (targetPage: number) => {
+        // --------------------Косытыль-----------------//
+        if (targetPage>500){targetPage=500}
+        // --------------------Костыль------------------//
         dispatch(updateFilter({ page: targetPage.toString() }));
     };
 

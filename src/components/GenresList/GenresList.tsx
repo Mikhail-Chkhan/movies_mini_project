@@ -25,7 +25,7 @@ const GenresList = () => {
         };
 
         fetchGenres();
-    }, [genres]);
+    }, []);
 
     if (loading) {
         return <div className={styles.pendingStyle}>Loading...</div>;
