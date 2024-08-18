@@ -1,35 +1,45 @@
 "use client";
-import {moviesService} from "@/services/movie.api.service";
-import MoviesListCard from "@/components/MoviesListCard/MoviesListCard";
+import { moviesService } from "@/services/movie.api.service";
+import React, { FC, useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+import {resetFilters, updateFilter} from "@/redux/slices/filterSlice";
+import { resetSearchParams } from "@/redux/slices/searchParamsSlice";
+import { MoviesResponse } from "@/models/MoviesResponse";
+import MoviesListServer from "./MoviesListServer";
 import styles from './MoviesList.module.css';
-import React, {FC, useEffect, useRef, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "@/redux/store";
-import {resetFilters} from "@/redux/slices/filterSlice";
-import {MoviesResponse} from "@/models/MoviesResponse";
-import PaginationComponent from "@/components/PaginationComponents/PaginationComponent";
-import {resetSearchParams} from "@/redux/slices/searchParamsSlice";
 
 interface MoviesListProps {
     type: string;
+    genreId?: string;
 }
 
-const MoviesList: FC<MoviesListProps> = ({type}) => {
+const MoviesListClient: FC<MoviesListProps> = ({ type, genreId }) => {
     const dispatch = useDispatch();
     const filters = useSelector((state: RootState) => state.filters.filters);
     const searchParams = useSelector((state: RootState) => state.searchParams.searchParams);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-    const [movies, setMovies] = useState<MoviesResponse>({page: 0, results: [], total_pages: 0, total_results: 0});
+    const [movies, setMovies] = useState<MoviesResponse>({ page: 0, results: [], total_pages: 0, total_results: 0 });
     const isInitialRender = useRef(true);
 
+
+
+
     useEffect(() => {
-        if (!searchParams.query) type = 'genre'
+        if (genreId) {
+            dispatch(updateFilter({ with_genres: genreId }));
+        }
+    }, [genreId]);
+
+    useEffect(() => {
+        if (!searchParams.query) type = 'genre';
         if (isInitialRender.current) {
             isInitialRender.current = false;
             dispatch(resetFilters());
-            dispatch(resetSearchParams())
+            dispatch(resetSearchParams());
         }
+
         const getMovies = async () => {
             try {
                 let response;
@@ -46,8 +56,6 @@ const MoviesList: FC<MoviesListProps> = ({type}) => {
                 }
 
                 setMovies(response);
-                // console.log("Фильтра",filters);
-                // console.log("Кверя",searchParams)
 
             } catch (err) {
                 setError("Unable to load movies, try refreshing the page");
@@ -57,7 +65,7 @@ const MoviesList: FC<MoviesListProps> = ({type}) => {
         };
 
         getMovies();
-    }, [filters, searchParams, type]); // Добавил зависимости
+    }, [filters, searchParams, type]);
 
     if (loading) {
         return <div className={styles.pendingStyle}>Loading...</div>;
@@ -67,24 +75,7 @@ const MoviesList: FC<MoviesListProps> = ({type}) => {
         return <div className={styles.pendingStyle}>{error}</div>;
     }
 
-    return (
-        <div>
-            <div className={styles.boxAllMovies}>
-                {movies.results.map((movie) => (
-                    <MoviesListCard
-                        key={movie.id}
-                        movie={movie}
-                    />
-                ))}
-            </div>
-            <div className={styles.paginatorBox}>
-                <PaginationComponent
-                    page={movies.page}
-                    total_pages={movies.total_pages}
-                />
-            </div>
-        </div>
-    );
+    return <MoviesListServer movies={movies} />;
 };
 
-export default MoviesList;
+export default MoviesListClient;

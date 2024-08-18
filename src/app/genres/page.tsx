@@ -1,11 +1,11 @@
 import React from 'react';
-import MoviesList from "@/components/MoviesList/MoviesList";
+import MoviesListClient from "@/components/MoviesList/MoviesListClient";
 
 const GenresPage = () => {
     return (
         <div>
 
-            <MoviesList type={'genre'}/>
+            <MoviesListClient type={'genre'}/>
         </div>
     );
 };

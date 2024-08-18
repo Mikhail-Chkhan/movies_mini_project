@@ -1,5 +1,5 @@
 import React from 'react';
-import MoviesListSingleGenre from "@/components/MoviesListSingleGenre/MoviesListSingleGenre";
+import MoviesListClient from "@/components/MoviesList/MoviesListClient";
 
 type Params = {
     params: { id: string }
@@ -9,7 +9,7 @@ const PageForSingleGenre: React.FC<Params> = ({ params }) => {
 
     return (
         <div>
-            <MoviesListSingleGenre genreId={params.id} />
+            <MoviesListClient genreId={params.id}  type={"genre"}/>
         </div>
     );
 };
