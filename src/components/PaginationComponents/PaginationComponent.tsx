@@ -1,15 +1,16 @@
 "use client";
 
-import React, { FC, useEffect, useState } from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import styles from "./PaginationComponent.module.css";
-import { useSearchParams } from "next/navigation";
-import { PaginatedPageModel } from "@/models/PaginatedPageModel";
+import {PaginatedPageModel} from "@/models/PaginatedPageModel";
 import {useDispatch} from "react-redux";
-import {updateFilter, updateMultiFilter} from "@/redux/slices/filterSlice";
+import {updateFilter} from "@/redux/slices/filterSlice";
+import {getTheme} from "@/helpers/helperSetTheme";
 
 const PaginationComponent: FC<PaginatedPageModel> = ({ page, total_pages }) => {
     const [arrPaginator, setArrPaginator] = useState<string[]>([]);
     const dispatch = useDispatch();
+    let dark = getTheme()
 
     useEffect(() => {
         createArrPages(page, total_pages);
@@ -57,7 +58,7 @@ const PaginationComponent: FC<PaginatedPageModel> = ({ page, total_pages }) => {
     return (
         <div className={styles.paginatorBox}>
             <button
-                className={styles.allPage}
+                className={dark? styles.allPageDark:styles.allPage}
                 disabled={page <= 1}
                 onClick={() => changePage(page - 1)}
             >
@@ -67,7 +68,15 @@ const PaginationComponent: FC<PaginatedPageModel> = ({ page, total_pages }) => {
             {arrPaginator.map((pageNumber, index) => (
                 <button
                     key={index}
-                    className={page.toString() === pageNumber ? styles.currentPage : styles.allPage}
+                    className={
+                        page.toString() === pageNumber
+                            ? dark
+                                ? styles.currentPageDark
+                                : styles.currentPage
+                            : dark
+                                ? styles.allPageDark
+                                : styles.allPage
+                    }
                     onClick={() => pageNumber !== "..." && changePage(Number(pageNumber))}
                     disabled={pageNumber === '...'}
                 >
@@ -76,7 +85,7 @@ const PaginationComponent: FC<PaginatedPageModel> = ({ page, total_pages }) => {
             ))}
 
             <button
-                className={styles.allPage}
+                className={dark? styles.allPageDark:styles.allPage}
                 disabled={page >= total_pages}
                 onClick={() => changePage(page + 1)}
             >

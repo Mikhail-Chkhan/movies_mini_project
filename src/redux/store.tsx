@@ -1,14 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit';
 import filterReducer from './slices/filterSlice';
-import genreReducer from './slices/genreSlice';
+import themeReducer from './slices/themeSlice';
 import searchParamsReducer from './slices/searchParamsSlice';
-
 
 export const store = configureStore({
     reducer: {
         filters: filterReducer,
-        genres: genreReducer,
-        searchParams: searchParamsReducer
+        searchParams: searchParamsReducer,
+        theme: themeReducer
     },
 });
 

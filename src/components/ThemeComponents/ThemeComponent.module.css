@@ -38,8 +38,15 @@ input:checked + .slider:before {
     transform: translateX(13px);
 }
 
-.labelText {
+.labelTextDark,.labelText {
     margin-left: 16px;
     font-size: 18px;
     color: white;
+}
+
+.labelTextDark{
+    color: white;
+}
+.labelText{
+    color: #303638;
 }

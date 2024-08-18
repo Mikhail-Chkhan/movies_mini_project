@@ -70,6 +70,7 @@ const SearchComponent: FC = () => {
                 value={searchModel.year}
                 onChange={handleInputChange}
                 className={styles.dropdown}
+                color={"green"}
             >
                 <option value="">Select Year</option>
                 {years.map((year, index) => (

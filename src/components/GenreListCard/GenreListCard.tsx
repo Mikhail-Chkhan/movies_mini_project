@@ -14,6 +14,7 @@ interface GenreProps {
 const GenresListCard: FC<GenreProps> = ({ genre }) => {
     const dispatch = useDispatch();
     const with_genres = useSelector((state: RootState) => state.filters.filters.with_genres);
+    const dark = useSelector((state: RootState) => state.theme.dark);
 
     const genreIds = with_genres ? with_genres.split(',').map(Number) : [];
     const isActive = genreIds.includes(genre.id);
@@ -24,13 +25,20 @@ const GenresListCard: FC<GenreProps> = ({ genre }) => {
 
     return (
         <div
-            className={isActive ? styles.genreCardActive : styles.genreCard}
+            className={
+                isActive
+                    ? dark
+                        ? styles.genreCardActiveDark
+                        : styles.genreCardActive
+                    : dark
+                        ? styles.genreCardDark
+                        : styles.genreCard
+            }
             onClick={activeFilter}
         >
             <p>{genre.name}</p>
         </div>
     );
 };
-
 
 export default GenresListCard;

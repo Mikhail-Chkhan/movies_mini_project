@@ -2,6 +2,7 @@
     width: 45vw;
     height: 25px;
     font-size: 22px;
+
 }
 
 .inputSearch, .dropdown {
@@ -20,11 +21,13 @@
     height: 30px;
     width: 170px;
     font-size: 18px;
+    /*color: #303638;*/
 
 }
 .divBorder {
     display: flex;
     flex-direction: row;
+
 }
 .buttonReset {
     background-color: #303638;

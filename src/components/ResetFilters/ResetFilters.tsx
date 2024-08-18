@@ -4,6 +4,7 @@ import styles from './ResetFilters.module.css'
 import {useDispatch} from "react-redux";
 import {resetFilters} from "@/redux/slices/filterSlice";
 import {resetSearchParams} from "@/redux/slices/searchParamsSlice";
+import {getTheme} from "@/helpers/helperSetTheme";
 
 interface ResetFiltersProps {
     onReset?: () => void;
@@ -11,6 +12,7 @@ interface ResetFiltersProps {
 
 const ResetFilters: FC<ResetFiltersProps> = ({ onReset }) => {
     const dispatch = useDispatch();
+    let dark = getTheme()
     let resetFilter = () => {
         dispatch(resetFilters())
         dispatch(resetSearchParams())
@@ -19,10 +21,10 @@ const ResetFilters: FC<ResetFiltersProps> = ({ onReset }) => {
     return (
         <div>
             <div
-                className={styles.divReset}
+                className={dark? styles.divResetDark:styles.divReset}
                 onClick={resetFilter}
             >
-                <p>RESET</p>
+                <p>X</p>
             </div>
         </div>
     );

@@ -19,5 +19,6 @@ main {
     width: 100vw;
     overflow: auto;
     padding-top: 35px;
+    background-color: #c2c2c2;
 
 }

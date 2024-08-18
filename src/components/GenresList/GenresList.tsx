@@ -1,4 +1,4 @@
-"use client"; // Указываем, что компонент клиентский
+"use client";
 
 import React, { useEffect, useState } from 'react';
 import IGenre from "@/models/IGenre";

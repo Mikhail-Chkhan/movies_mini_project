@@ -1,5 +1,5 @@
-.genreCard, .genreCardActive  {
-    /*background-color: #303638;*/
+.genreCard, .genreCardActive, .genreCardActiveDark,.genreCardDark  {
+    background-color: #303638;
     height: 20px;
     /*width: 100px;*/
     margin: 2px;
@@ -15,8 +15,24 @@
 .genreCardActive {
     background-color: rgba(124, 122, 122, 0.5);
     border: 2px solid #303638;
+    color: white;
 }
 .genreCard {
     background-color: #303638;
     border: none;
+    color: white;
 }
+
+.genreCardActiveDark{
+    background-color: white;
+    border: 2px solid #303638;
+    color: rgba(124, 122, 122, 0.5);
+
+}
+.genreCardDark{
+    background-color:white ;
+    border: none;
+    color: #303638;
+
+}
+

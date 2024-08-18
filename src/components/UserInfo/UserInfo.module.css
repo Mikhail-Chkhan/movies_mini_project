@@ -2,12 +2,21 @@
     height: 32px;
     margin: 10px 5px;
 }
-.userBox {
+.userBox, .userBoxDark {
     width: 100px;
     display: flex;
     flex-direction: row;
-    color: white;
+    /*color: white;*/
     cursor: pointer;
     margin-right: 40px
 
+}
+
+
+.userBoxDark{
+    color: white;
+}
+.userBox {
+
+    color: #303638;
 }

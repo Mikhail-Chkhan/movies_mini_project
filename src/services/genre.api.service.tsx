@@ -1,7 +1,6 @@
 import {urls} from "@/constants/urls";
 import {BearerToken} from "@/constants/BearerToken";
 import IGenre from "@/models/IGenre";
-import React from "react";
 
 
 type GenreProps = { genres: IGenre[] }

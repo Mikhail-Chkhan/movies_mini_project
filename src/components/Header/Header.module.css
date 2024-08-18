@@ -1,7 +1,7 @@
-.menuBox{
+.menuBox, .menuBoxDark{
     height: 100%;
     width: 100%;
-    background-color: #303638;
+    /*background-color: #303638;*/
     margin: 0;
     padding: 10px 5px;
     display: flex;
@@ -9,11 +9,11 @@
     justify-content: space-between;
     align-items: center;
 }
-.menuBox>div{
+.menuBox>div, .menuBoxDark>div{
     margin: 0;
 }
-.menuBox>div>a{
-    color: white;
+.menuBox>div>a, .menuBoxDark>div>a{
+    /*color: white;*/
     font-size: 20px;
     text-decoration: none;
 }
@@ -29,4 +29,17 @@
 }
 .userLink {
     margin-right: 20px;
+}
+
+.menuBoxDark {
+    background-color: #303638;
+}
+.menuBoxDark>div>a {
+    color: white;
+}
+.menuBox {
+    background-color: #9a9a9a;
+}
+.menuBox>div>a {
+    color: #303638;
 }
